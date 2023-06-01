@@ -1,0 +1,34 @@
+<p>display-apidata works!</p>
+
+<div>
+    <button (click)="toggleContentVisibility()">{{ isContentVisible ? 'Hide characters' : 'Show characters'}}</button>
+    <button routerLink="/jsondata">Show raw data</button>
+</div>
+
+
+<div *ngIf="isContentVisible">
+<div>
+    <button (click)="filterByStatus('Alive')">Alive</button>
+    <button (click)="filterByStatus('Dead')">Dead</button>
+    <button (click)="filterByStatus('unknown')">Unknown</button>
+    <button (click)="filterByStatus('')">All</button>
+</div>
+<div>
+    <button (click)="orderCharacters()" [disabled]="isSorted">Order Characters</button>
+    <button (click)="resetOrder()" [disabled]="!isSorted">Reset Order</button>
+</div>
+    <ul *ngIf="characters$ | async as characters$" class="character-list">
+    <li *ngFor="let character of (isSorted ? sortedCharacters : (characters$)) | filter: selectedStatus" class="character-item">
+        <div class="character-card">
+        <div class="character-image">
+            <img [src]="character.image" alt="Character Image">
+        </div>
+        <div class="character-details">
+            <h3 class="character-name">{{ character.name }}</h3>
+            <p class="character-info">Status: {{ character.status }}</p>
+            <p class="character-info">Species: {{ character.species }}</p>
+        </div>
+        </div>
+    </li>
+    </ul>          
+</div>

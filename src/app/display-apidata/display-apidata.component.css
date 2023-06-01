@@ -1,0 +1,26 @@
+
+  .character-item {
+    display: inline-block;
+    margin-right: 20px; vertical-align: top;
+  }
+  .character-card {display: flex;flex-direction: column;
+    background-color: #f2f2f2;
+    padding: 10px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .character-image {
+    flex: 0 0 120px; margin-bottom: 10px;}
+  
+  .character-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;}
+  
+  .character-name {
+    margin: 0; font-size: 18px; font-weight: bold;}
+  
+  .character-info {
+    margin: 5px 0;
+    font-size: 14px; 
+  }
+  
